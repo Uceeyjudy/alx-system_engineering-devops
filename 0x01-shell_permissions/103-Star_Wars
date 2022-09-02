@@ -1,2 +1,2 @@
-telnet telehack.com
+#!/bin/bash
 starwars

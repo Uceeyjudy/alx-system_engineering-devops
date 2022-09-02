@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 755 dir0/dir1/dir2/dir3
+chmod a+x */

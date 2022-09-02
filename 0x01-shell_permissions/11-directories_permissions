@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 711 dir0/dir1/dir2
+chmod 755 dir0/dir1/dir2/dir3

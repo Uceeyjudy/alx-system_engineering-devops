@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Install nginx
+apt-get update
+apt-get install -y nginx
+
+# Configure nginx to listen on port 80
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm;
+    server_name _;
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4/;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+        root /etc/nginx/html;
+        internal;
+    }
+}" > /etc/nginx/sites-available/default
+
+# Restart nginx without using systemctl
+#service nginx restart
+sudo systemctl restart nginx
+# Create index.html file with "Hello World!" content
+echo "Hello World!" > /var/www/html/index.html
